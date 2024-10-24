@@ -160,27 +160,41 @@ void handle_NotFound() {
   server.send(404, "text/plain", "Not found");
 }
 
-String SendHTML() {
-  String ptr = "<!DOCTYPE html> <html>\n";
-  ptr += "<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
-  ptr += "<title>Car Control</title>\n";
-  ptr += "<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}\n";
-  ptr += "body { margin-top: 50px; }\n";
-  ptr += "h1 { color: #444444; margin: 50px auto 30px; }\n";
-  ptr += ".button { width: 100px; height: 60px; border-radius: 10px; font-size: 20px; margin: 10px; text-decoration: none; display: inline-block; text-align: center; padding-top: 20px; }\n";
-  ptr += ".button-on { background-color: #1abc9c; color: white; }\n";
-  ptr += ".button-off { background-color: #34495e; color: white; }\n";
-  ptr += "p { font-size: 14px; color: #888; margin-bottom: 10px; }\n";
-  ptr += "</style>\n";
-  ptr += "</head>\n";
-  ptr += "<body>\n";
-  ptr += "<h1>Car Control</h1>\n";
-  ptr += "<a class=\"button button-on\" href=\"/forward\">Forward</a>\n";
-  ptr += "<br><a class=\"button button-on\" href=\"/left\">Left</a>";
-  ptr += "<a class=\"button button-off\" href=\"/stop\">Stop</a>";
-  ptr += "<a class=\"button button-on\" href=\"/right\">Right</a><br>";
-  ptr += "<a class=\"button button-on\" href=\"/backward\">Backward</a>\n";
-  ptr += "</body>\n";
-  ptr += "</html>\n";
+String SendHTML() {  
+  String ptr = "<!DOCTYPE html> <html>\n";  
+  ptr += "<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";  
+  ptr += "<title>Car Control</title>\n";  
+  ptr += "<style>\n";  
+  ptr += "html { font-family: 'Arial', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #e0e0e0; }\n";  
+  ptr += "body { text-align: center; margin: 0; padding: 0; }\n";  
+  ptr += "h1 { color: #444; margin-bottom: 40px; }\n";  
+  ptr += ".container { display: flex; flex-direction: column; align-items: center; }\n";  
+  ptr += ".button { width: 120px; height: 60px; border-radius: 20px; font-size: 20px; margin: 15px; text-decoration: none; display: flex; justify-content: center; align-items: center; transition: all 0.3s ease; }\n";  
+  ptr += ".button-on { background-color: #28a745; color: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }\n";  
+  ptr += ".button-off { background-color: #dc3545; color: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }\n";  
+  ptr += ".button:hover { transform: scale(1.05); opacity: 0.9; }\n";  
+  ptr += "p { font-size: 16px; color: #555; margin-top: 20px; }\n";  
+  ptr += "</style>\n";  
+  ptr += "</head>\n";  
+  ptr += "<body>\n";  
+  ptr += "<div class=\"container\">\n";  
+  ptr += "<h1>Car Control</h1>\n";  
+  ptr += "<div style=\"display: flex; flex-direction: column; align-items: center;\">\n";  
+  ptr += "<div>\n";  
+  ptr += "<a class=\"button button-on\" href=\"/forward\">Forward</a>\n";  
+  ptr += "</div>\n";  
+  ptr += "<div style=\"display: flex; justify-content: center;\">\n";  
+  ptr += "<a class=\"button button-on\" href=\"/left\">Left</a>\n";  
+  ptr += "<a class=\"button button-off\" href=\"/stop\">Stop</a>\n";  
+  ptr += "<a class=\"button button-on\" href=\"/right\">Right</a>\n";  
+  ptr += "</div>\n";  
+  ptr += "<div>\n";  
+  ptr += "<a class=\"button button-on\" href=\"/backward\">Backward</a>\n";  
+  ptr += "</div>\n";  
+  ptr += "</div>\n";  
+  ptr += "<p>Use the buttons to control your car.</p>\n";  
+  ptr += "</div>\n";  
+  ptr += "</body>\n";  
+  ptr += "</html>\n";  
   return ptr;
 }
